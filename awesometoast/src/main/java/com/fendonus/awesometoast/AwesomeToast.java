@@ -3,6 +3,7 @@ package com.fendonus.awesometoast;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,7 +27,7 @@ public class AwesomeToast {
         toast.show();
     }
 
-    public static void awesomeToast(Context context,String message, int bgColor,int textColor,int icon){
+    public static void awesomeToast(Context context,String message, int bgColor,int textColor,Drawable icon){
         View v; // Creating an instance for View Object
         LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         v = inflater.inflate(R.layout.toast_layout, null);
@@ -38,7 +39,7 @@ public class AwesomeToast {
         toastMessage.setTextColor(context.getResources().getColor(textColor));
         v.getBackground().setColorFilter(context.getResources().getColor(bgColor), PorterDuff.Mode.SRC_IN);
         toastMessage.setGravity(Gravity.CENTER);
-        imageView.setImageResource(icon);
+        imageView.setImageDrawable(icon);
     }
 
 
