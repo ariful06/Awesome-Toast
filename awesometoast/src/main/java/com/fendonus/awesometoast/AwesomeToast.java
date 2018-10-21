@@ -32,12 +32,12 @@ public class AwesomeToast {
         LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         v = inflater.inflate(R.layout.toast_layout, null);
 
+        LinearLayout toastLayout = v.findViewById(R.id.toast_layout);
         TextView toastMessage = v.findViewById(R.id.toast_message);
         ImageView imageView = v.findViewById(R.id.toast_icon);
-
         toastMessage.setText(message);
         toastMessage.setTextColor(context.getResources().getColor(textColor));
-        v.getBackground().setColorFilter(context.getResources().getColor(bgColor), PorterDuff.Mode.SRC_IN);
+        toastLayout.setBackgroundColor(bgColor);
         toastMessage.setGravity(Gravity.CENTER);
         imageView.setImageDrawable(icon);
     }
