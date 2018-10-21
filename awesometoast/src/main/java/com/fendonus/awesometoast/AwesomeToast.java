@@ -27,7 +27,7 @@ public class AwesomeToast {
         toast.show();
     }
 
-    public static void awesomeToast(Context context,String message, int bgColor,int textColor,Drawable icon){
+    public static void awesomeToast(Context context,String message, int bgColor,int textColor,int icon){
         View v; // Creating an instance for View Object
         LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         v = inflater.inflate(R.layout.toast_layout, null);
@@ -37,9 +37,9 @@ public class AwesomeToast {
         ImageView imageView = v.findViewById(R.id.toast_icon);
         toastMessage.setText(message);
         toastMessage.setTextColor(context.getResources().getColor(textColor));
-        toastLayout.setBackgroundColor(bgColor);
+        toastLayout.setBackgroundColor(context.getResources().getColor(bgColor));
         toastMessage.setGravity(Gravity.CENTER);
-        imageView.setImageDrawable(icon);
+        imageView.setImageDrawable(context.getResources().getDrawable(icon));
     }
 
 
